@@ -1,8 +1,18 @@
 import React from "react";
 
 const UserInput = () => {
+  const submitHandler = () => {
+    console.log("Submitted successfully")
+  };
+
+  const resetHandler = () => {
+    console.log("Reset successfully");
+  };
+
   return (
-    <form className="form">
+    <form
+      onSubmit={submitHandler}
+      className="form">
       <div className="input-group">
         <p>
           <label htmlFor="current-savings">Current Savings (€)</label>
@@ -39,6 +49,7 @@ const UserInput = () => {
       </div>
       <p className="actions">
         <button
+          onClick={resetHandler}
           type="reset"
           className="buttonAlt">
           Reset
