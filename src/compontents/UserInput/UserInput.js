@@ -1,7 +1,8 @@
 import React from "react";
 
 const UserInput = () => {
-  const submitHandler = () => {
+  const submitHandler = (event) => {
+    event.preventDefault();
     console.log("Submitted successfully")
   };
 
