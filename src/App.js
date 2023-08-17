@@ -1,6 +1,7 @@
 import React from "react";
 
 import Header from "./compontents/Header/Header";
+import UserInput from "./compontents/UserInput/UserInput";
 
 function App() {
   const calculateHandler = (userInput) => {
@@ -33,54 +34,7 @@ function App() {
   return (
     <div>
       <Header />
-      <form className="form">
-        <div className="input-group">
-          <p>
-            <label htmlFor="current-savings">Current Savings (€)</label>
-            <input
-              type="number"
-              id="current-savings"
-            />
-          </p>
-          <p>
-            <label htmlFor="yearly-contribution">Yearly Savings (€)</label>
-            <input
-              type="number"
-              id="yearly-contribution"
-            />
-          </p>
-        </div>
-        <div className="input-group">
-          <p>
-            <label htmlFor="expected-return">
-              Expected Interest (%, per year)
-            </label>
-            <input
-              type="number"
-              id="expected-return"
-            />
-          </p>
-          <p>
-            <label htmlFor="duration">Investment Duration (years)</label>
-            <input
-              type="number"
-              id="duration"
-            />
-          </p>
-        </div>
-        <p className="actions">
-          <button
-            type="reset"
-            className="buttonAlt">
-            Reset
-          </button>
-          <button
-            type="submit"
-            className="button">
-            Calculate
-          </button>
-        </p>
-      </form>
+      <UserInput />
 
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
