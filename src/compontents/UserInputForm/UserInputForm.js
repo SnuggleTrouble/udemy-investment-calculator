@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classes from "./UserInputForm.module.css";
 
 // Object which stores the property id's with an initial value.
 const initialInputState = {
@@ -38,7 +39,8 @@ const UserInputForm = (props) => {
         // JS evaluates the code inside the square brackets and uses the value as the key.
         // This refers to the inputHandler property that holds the id we wish to target,
         // and connects the value property to it.
-        [input]: value,
+        // the + converts the string to a number.
+        [input]: +value,
       };
     });
   };
@@ -46,8 +48,8 @@ const UserInputForm = (props) => {
   return (
     <form
       onSubmit={submitHandler}
-      className="form">
-      <div className="input-group">
+      className={classes.form}>
+      <div className={classes["input-group"]}>
         <p>
           <label htmlFor="current-savings">Current Savings (€)</label>
           <input
@@ -78,7 +80,7 @@ const UserInputForm = (props) => {
           />
         </p>
       </div>
-      <div className="input-group">
+      <div className={classes["input-group"]}>
         <p>
           <label htmlFor="expected-return">
             Expected Interest (%, per year)
@@ -106,16 +108,16 @@ const UserInputForm = (props) => {
           />
         </p>
       </div>
-      <p className="actions">
+      <p className={classes.actions}>
         <button
           onClick={resetHandler}
           type="reset"
-          className="buttonAlt">
+          className={classes.buttonAlt}>
           Reset
         </button>
         <button
           type="submit"
-          className="button">
+          className={classes.button}>
           Calculate
         </button>
       </p>
