@@ -2,12 +2,19 @@ import React from "react";
 
 const UserInput = () => {
   const submitHandler = (event) => {
+    // This prevents the webpage from reloading when the form is submitted.
     event.preventDefault();
-    console.log("Submitted successfully")
+    console.log("Submitted successfully");
   };
 
   const resetHandler = () => {
     console.log("Reset successfully");
+  };
+
+  // The first paramater targets the id for each input field that calls on the function.
+  // The second parameter targets the value via the event which React provides.
+  const inputHandler = (input, value) => {
+    console.log(input, value);
   };
 
   return (
@@ -18,6 +25,12 @@ const UserInput = () => {
         <p>
           <label htmlFor="current-savings">Current Savings (€)</label>
           <input
+            // Here the inputHandler will be called as an arrow function
+            // instead of being pointed at, making it reusable for each instance.
+            // It looks at the input field id and gets the value via the event.
+            onChange={(event) =>
+              inputHandler("current-savings", event.target.value)
+            }
             type="number"
             id="current-savings"
           />
@@ -25,6 +38,10 @@ const UserInput = () => {
         <p>
           <label htmlFor="yearly-contribution">Yearly Savings (€)</label>
           <input
+            // Here the inputHandler function is used again, but with a different id.
+            onChange={(event) =>
+              inputHandler("yearly-contribution", event.target.value)
+            }
             type="number"
             id="yearly-contribution"
           />
@@ -36,6 +53,9 @@ const UserInput = () => {
             Expected Interest (%, per year)
           </label>
           <input
+            onChange={(event) =>
+              inputHandler("expected-return", event.target.value)
+            }
             type="number"
             id="expected-return"
           />
@@ -43,6 +63,7 @@ const UserInput = () => {
         <p>
           <label htmlFor="duration">Investment Duration (years)</label>
           <input
+            onChange={(event) => inputHandler("duration", event.target.value)}
             type="number"
             id="duration"
           />
