@@ -8,13 +8,14 @@ const initialInputState = {
   "investment-duration": "",
 };
 
-const UserInputForm = () => {
+const UserInputForm = (props) => {
   const [userInput, setUserInput] = useState(initialInputState);
 
   const submitHandler = (event) => {
     // This prevents the webpage from reloading when the form is submitted.
     event.preventDefault();
-    console.log("Submitted successfully");
+
+    props.onCalculate(userInput);
   };
 
   const resetHandler = () => {
