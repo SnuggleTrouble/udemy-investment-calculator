@@ -1,7 +1,7 @@
 import React from "react";
 
 import Header from "./compontents/Header/Header";
-import UserInput from "./compontents/UserInput/UserInput";
+import UserInputForm from "./compontents/UserInputForm/UserInputForm";
 import Table from "./compontents/Table/Table";
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
   return (
     <div>
       <Header />
-      <UserInput />
+      <UserInputForm />
 
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
